@@ -6,21 +6,21 @@
 </head>
 <body>
 <form th:action="@{/attractions/save}" th:object="${attraction}" method="post">
-  <label>Navn:</label>
+  <label class="label">Navn:</label>
   <input type="text" th:field="*{name}" required>
   <br>
 
-  <label>Beskrivelse:</label>
+  <label class="label">Beskrivelse:</label>
   <textarea th:field="*{description}" placeholder="Beskriv attraktionen her" required></textarea>
   <br>
 
-  <label>By:</label>
+  <label class="label">By:</label>
   <select th:field="*{city}">
     <option th:each="city : ${cities}" th:value="${city}" th:text="${city}"></option>
   </select>
   <br>
 
-  <label>Tags:</label>
+  <label class="label">Tags:</label>
   <div th:each="tag : ${tags}">
     <input type="checkbox" th:field="*{tags}" th:value="${tag}">
     <span th:text="${tag}"></span>

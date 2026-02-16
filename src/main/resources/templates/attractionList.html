@@ -3,32 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <title>Attractions</title>
-    <link rel="stylesheet" th:href="@{/css/main.css}">
+    <link rel="stylesheet" th:href="@{/main.css}">
 </head>
 <body>
-<h1>Alle Attraktioner</h1>
+<h1 class="head">Alle Attraktioner</h1>
 
-<table>
+<table class="tabel">
     <tr>
-        <th>Navn</th> <th>Beskrivelse</th> <th>By</th>
+        <th class="tabel">Navn</th> <th class="tabel">Beskrivelse</th> <th class="tabel">By</th>
     </tr>
-    <tr th:each="attraction:${attractions}">
-        <td th:text="${attraction.name}"></td>
-        <td th:text="${attraction.description}"></td>
-        <td th:text="${attraction.city}"></td>
+    <tr class="tabel" th:each="attraction:${attractions}">
+        <td class="tabel" th:text="${attraction.name}"></td>
+        <td class="tabel" th:text="${attraction.description}"></td>
+        <td class="tabel" th:text="${attraction.city}"></td>
 
         <td>
-            <button><a th:href="@{/attractions/{name}/tags(name=${attraction.name})}">Tags</a></button>
+            <button class="submit"><a th:href="@{/attractions/{name}/tags(name=${attraction.name})}">Tags</a></button>
         </td>
 
 
         <td>
             <form th:action="@{/attractions/delete/{name}(name=${attraction.name})}" th:method="post">
-                <button type="submit">Slet</button>
+                <button class="submit" type="submit">Slet</button>
             </form>
         </td>
         <td>
-            <button><a th:href="@{/attractions/{name}/edit(name=${attraction.name})}">Opdater</a></button>
+            <button class="submit"><a th:href="@{/attractions/{name}/edit(name=${attraction.name})}">Opdater</a></button>
         </td>
     </tr>
 </table>
